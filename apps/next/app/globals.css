@@ -1,19 +1,27 @@
 @import "tailwindcss";
 
-:root {
-  --orange: #FFAB1A;
-  --main-black: #00011D;  
-  --gray: #CACACA;
-  --blue: #427CC8;
-  --lite-gray: #F2F2F2;
-  --dark-blue: #123977;
-  --lite-orange: #FFCE7F;
+@theme {
+  --color-orange: #FFAB1A;
+  --color-black: #00011D;  
+  --color-gray: #CACACA;
+  --color-gray-500: #4b516e;
+  --color-blue: #427CC8;
+  --color-lite-gray: #F2F2F2;
+  --color-dark-blue: #123977;
+  --color-lite-orange: #FFCE7F;
+}
 
+/* Custom fade-in effect */
+.fade-in {
+  @apply opacity-0 translate-y-[10px] transition-all duration-800 ease-in-out;
+}
+
+.fade-in.loaded {
+  @apply opacity-100 translate-y-0;
 }
 
 body {
-  background: var(--gray);
-  color: var(--main-black);
-  
+  background: #CACACA;
+  color: #00011D;
   font-family: Arial, Helvetica, sans-serif;
 }
