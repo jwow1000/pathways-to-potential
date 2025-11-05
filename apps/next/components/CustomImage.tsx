@@ -2,11 +2,12 @@
 import { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import { CustomImage as CustomImageType } from "../../studio/sanity.types";
 
 type ObjectFitOption = "contain" | "cover" | "fill" | "none" | "scale-down";
 
 type FancyImageProps = {
-  src: string | StaticImageData;
+  src: string | StaticImageData | CustomImageType;
   alt: string;
   objectFit?: ObjectFitOption;
   className?: string;

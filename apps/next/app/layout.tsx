@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Adamina } from "next/font/google";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 // sans-serif main font
@@ -28,10 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interSans.variable} ${adaminaSerif.variable} antialiased`}
+        className={`${interSans.variable} ${adaminaSerif.variable} antialiased relative`}
       >
       <Header />
         {children}
+      <Footer />
       </body>
     </html>
   );

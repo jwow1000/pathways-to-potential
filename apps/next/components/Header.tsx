@@ -20,7 +20,7 @@ export default function Header({
   return (
     <header
       className={cx(
-        "relative w-full flex items-center z-20 p-4 h-24 text-inherit md:p-8 fixed left-0 top-0 pointer-events-none fill-mainBlack text-mainBlack bg-gray",
+        "relative w-full flex items-center z-50 p-4 h-24 text-inherit md:p-8 fixed left-0 top-0 pointer-events-none fill-mainBlack text-mainBlack bg-gray border-black border-b-[1px] border-t-[1px]",
         
         className
       )}
@@ -52,11 +52,15 @@ export default function Header({
         <Link
           href={`/`}
           aria-label=""
-        >{`Collections`}</Link>
+        >{`Contact`}</Link>
+        <Link
+          href={`/`}
+          aria-label="Services"
+        >{`Services`}</Link>
       </div>
       <div
         className={`
-          sm:hidden absolute top-0 right-0 w-1/3 h-full p-1 bg-gray flex flex-col gap-2 
+          sm:hidden absolute top-0 right-0 w-1/3 h-full p-1 bg-lite-orange flex flex-col gap-2
           transform transition-all duration-500 ease-in-out 
           
           ${menuOpen ? "translate-y-[100%] opacity-100 pointer-events-auto" : "-translate-y-0 opacity-0 pointer-events-none"}
@@ -68,8 +72,12 @@ export default function Header({
         >{`About Us`}</Link>
         <Link
           href={`/`}
-          aria-label=""
-        >{`Collections`}</Link>
+          aria-label="Contact"
+        >{`Contact`}</Link>
+        <Link
+          href={`/`}
+          aria-label="Services"
+        >{`Services`}</Link>
       </div>
     </header>
   );
