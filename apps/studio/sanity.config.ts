@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'pathways-studio',
 
-  projectId: '3crrctgo',
+  projectId: 'hxji6d4u',
   dataset: 'production',
 
   plugins: [

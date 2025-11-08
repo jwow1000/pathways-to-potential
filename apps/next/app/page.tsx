@@ -1,6 +1,8 @@
 import { getLandingPage } from "@/sanity/lib/fetch";
 import CustomImage from "@/components/CustomImage";
 import RichText from "@/components/RichText";
+import BottomWaveOverlay from "@/components/BottomWaveOverlay";
+import ContactForm from "@/components/ContactForm";
 import { CustomImage as CustomImageType } from "../../studio/sanity.types";
 
 interface Part {
@@ -19,14 +21,24 @@ export default async function Home() {
         <section className="relative bg-blue text-orange w-full p-4 min-h-[500px] flex flex-row justify-between">
           <h1 className="text-[45px] md:text-[64px] font-bold z-40 p-1">Pathways to Potential</h1>
           <div className="absolute md:hidden top-0 left-0 w-full h-[280px] bg-gradient-to-b from-dark-blue to-transparent z-20"></div>
-          <div className="absolute md:relative top-0 left-0 w-full h-[500px] md:w-1/2 opacity-100 md:opacity-100 z-0">
-            <CustomImage src={info.about.image} alt={"alt text baby"}/>
+          <div className="absolute md:relative top-0 left-0 w-full h-[500px] md:w-1/2 opacity-100 md:opacity-100 z-0 fill-blue">
+            <CustomImage 
+              src={info.about.image} 
+              alt={"alt text baby"} 
+              className="rounded" 
+              overlay={true}
+            />
           </div>
         </section>
 
         <section className="relative w-full min-h-[500px] bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] border-b-[1px]">
-          <div className="hidden md:block relative w-full min-h-[300px] md:w-1/2 opacity-100">
-            <CustomImage src={info.about.image} alt={"alt text baby"} />
+          <div className="hidden md:block relative w-full fill-gray min-h-[300px] md:w-1/2 opacity-100">
+            <CustomImage 
+              src={info.about.image} 
+              alt={"alt text baby"} 
+              className="rounded"
+              overlay={true}
+            />
           </div>
           <div className="w-1/2">
             <h2 className="w-full mb-8 text-[40px] font-serif font-bold">{info.about.title}</h2>
@@ -71,8 +83,23 @@ export default async function Home() {
             </div>
           </div> 
         </section>
+
+        <section className="relative w-full min-h-[500px] bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px]">
+          <div className="hidden md:block relative w-full min-h-[300px] md:w-1/2 opacity-100">
+            <CustomImage src={info.contact.image} alt={"alt text baby"} />
+          </div>
+          <div className="w-1/2">
+            <h2 className="w-full mb-0 text-[40px] font-serif font-bold">{info.contact.title}</h2>
+            <RichText value={info.contact.body} />
+            <ContactForm />
+          </div>
+          <div className="md:hidden relative w-full min-h-[300px] md:w-1/2 opacity-100">
+            <CustomImage src={info.contact.image} alt={"alt text baby"} />
+          </div>
+         
+        </section>
         
       </main>
     </div>
   );
-}
+} 

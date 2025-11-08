@@ -20,7 +20,7 @@ export default function Header({
   return (
     <header
       className={cx(
-        "relative w-full flex items-center z-50 p-4 h-24 text-inherit md:p-8 fixed left-0 top-0 pointer-events-none fill-mainBlack text-mainBlack bg-gray border-black border-b-[1px] border-t-[1px]",
+        "relative w-full flex items-center z-50 p-4 h-24 text-inherit md:p-8 fixed left-0 top-0 pointer-events-none fill-mainBlack text-mainBlack bg-gray border-black border-b-[2px] border-t-[2px] font-serif",
         
         className
       )}
@@ -28,7 +28,7 @@ export default function Header({
       <Link
         href="/"
         aria-label="Home"
-        className="fill-inherit w-fit text-[30px] inline pointer-events-auto font-serif"
+        className="fill-inherit w-fit text-[30px] inline pointer-events-auto font-light italic border-blue border-l-[2px] border-b-[2px] bg-orange/45 p-2 rounded"
       >
         {`Pathways to Potential`}
       </Link>
@@ -44,7 +44,7 @@ export default function Header({
           color={"#00011D"}
         />
       </div>
-      <div className="hidden sm:flex text-black text-xl flex-row gap-10 w-fit mr-0 ml-auto pointer-events-auto">
+      <div className="hidden sm:flex text-black text-xl flex-row gap-10 w-fit mr-0 ml-auto pointer-events-auto font-serif">
         <Link
           href={`/about`}
           aria-label="About Us"

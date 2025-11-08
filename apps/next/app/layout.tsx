@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Adamina } from "next/font/google";
+import { Inter, IBM_Plex_Serif } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -11,9 +11,11 @@ const interSans = Inter({
 })
 
 // serif main font
-const adaminaSerif = Adamina({
-  weight: "400",
-  variable: "--font-adamina"
+const ibmSerif = IBM_Plex_Serif({
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"], 
+  subsets: ["latin"],
+  variable: "--font-ibm-serif"
 });
 
 export const metadata: Metadata = {
@@ -29,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interSans.variable} ${adaminaSerif.variable} antialiased relative`}
+        className={`${interSans.variable} ${ibmSerif.variable} antialiased relative`}
       >
       <Header />
         {children}
