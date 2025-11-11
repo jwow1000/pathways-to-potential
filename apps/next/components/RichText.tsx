@@ -1,6 +1,7 @@
 import { PortableText } from "next-sanity";
 import {PortableTextBlock} from '@portabletext/types';
 
+
 interface RichTextProps {
   value: (PortableTextBlock)[];
 }

@@ -1,9 +1,9 @@
 import { getLandingPage } from "@/sanity/lib/fetch";
 import CustomImage from "@/components/CustomImage";
 import RichText from "@/components/RichText";
-import BottomWaveOverlay from "@/components/BottomWaveOverlay";
 import ContactForm from "@/components/ContactForm";
-import { CustomImage as CustomImageType } from "../../studio/sanity.types";
+import { CustomImage as CustomImageType, TeamMember as TeamMemberType } from "../../studio/sanity.types";
+import TeamMember from "@/components/TeamMember";
 
 interface Part {
   number: number;
@@ -18,7 +18,7 @@ export default async function Home() {
   return (
     <div className="relative w-full flex min-h-screen bg-gray">
       <main className="w-full h-full font-sans">
-        <section className="relative bg-blue text-orange w-full p-4 min-h-[500px] flex flex-row justify-between">
+        <section className="relative bg-blue text-orange w-full px-4 gap-4 py-16 min-h-[500px] flex flex-row justify-between">
           <h1 className="text-[45px] md:text-[64px] font-bold z-40 p-1">Pathways to Potential</h1>
           <div className="absolute md:hidden top-0 left-0 w-full h-[280px] bg-gradient-to-b from-dark-blue to-transparent z-20"></div>
           <div className="absolute md:relative top-0 left-0 w-full h-[500px] md:w-1/2 opacity-100 md:opacity-100 z-0 fill-blue">
@@ -31,7 +31,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="relative w-full min-h-[500px] bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] border-b-[1px]">
+        <section className="relative w-full min-h-[600px] bg-gray text-dark-blue px-4 py-16 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] border-b-[1px]">
           <div className="hidden md:block relative w-full fill-gray min-h-[300px] md:w-1/2 opacity-100">
             <CustomImage 
               src={info.about.image} 
@@ -49,7 +49,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="relative w-full min-h-[500px] bg-blue text-black p-4 flex flex-col md:flex-row justify-between gap-8">
+        <section className="relative w-full min-h-[500px] bg-blue text-black p-4 flex flex-col md:flex-row justify-between gap-8 py-16">
           <div className="relative w-full">
             <h2 className="w-full mb-8 text-[40px] text-orange font-serif font-bold">{info.howItWorks.title}</h2>
             <div className="w-full italic text-lite-orange mb-8">
@@ -84,11 +84,11 @@ export default async function Home() {
           </div> 
         </section>
 
-        <section className="relative w-full min-h-[500px] bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px]">
+        <section className="relative w-full min-h-[500px] bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] py-16">
           <div className="hidden md:block relative w-full min-h-[300px] md:w-1/2 opacity-100">
             <CustomImage src={info.contact.image} alt={"alt text baby"} />
           </div>
-          <div className="w-1/2">
+          <div className="w-full md:w-1/2 max-w-[55ch] mx-auto">
             <h2 className="w-full mb-0 text-[40px] font-serif font-bold">{info.contact.title}</h2>
             <RichText value={info.contact.body} />
             <ContactForm />
@@ -97,6 +97,25 @@ export default async function Home() {
             <CustomImage src={info.contact.image} alt={"alt text baby"} />
           </div>
          
+        </section>
+
+        <section className="relative w-full min-h-[500px] bg-blue text-black p-4 flex flex-col md:flex-row justify-between gap-8 py-16 text-orange">
+          <div>
+            <h2 className="w-full mb-8 text-[40px] text-orange font-serif font-bold">{info.meetTeam.title}</h2>
+            <RichText value={info.meetTeam.body} />
+          </div>
+
+          <div className="w-full flex">
+            {
+              info.meetTeam.teamMembers.map((member: TeamMemberType) => (
+                <TeamMember 
+                  member={member} 
+                  key={`Team-Member-${member.name}`}
+                  className="w-full p-0 md:w-128"
+                />
+              ))
+            }
+          </div>
         </section>
         
       </main>
