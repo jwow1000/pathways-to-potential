@@ -10,12 +10,12 @@ interface TeamMemberProps {
 export default async function TeamMember({member, className}: TeamMemberProps) {
   const bio = member.bio as PortableTextBlock[];
   return (
-    <div className={`relative flex flex-row gap-4 p-2 ${className}`}>
-      <div className="w-full">
+    <div className={`relative flex flex-row gap-8 p-2 ${className}`}>
+      <div className="w-full aspect-square">
         {
           member.portrait &&
           <CustomImage src={member.portrait} alt={member.portrait.alt || "no alt text"}
-            className="rounded-full"
+            className="rounded-full aspect-square"
           />
         }
           

@@ -59,13 +59,13 @@ export default async function Home() {
               {
                 info.howItWorks.parts &&
                 info.howItWorks.parts.map((part: Part, idx: number) => (
-                  <div className="relative w-full flex-grow lg:flex lg:flex-row gap-2 lg:gap-8" key={`part ${idx}`}>
+                  <div className="relative w-full flex-grow lg:flex lg:flex-row gap-4 lg:gap-8" key={`part ${idx}`}>
                     <div className="w-full h-full">
                       <h3 className="font-bold mb-3">{`${part.number}. `}{part.title}</h3>
-                      <p className="ml-4 lg:ml-0">{part.blurb}</p>
+                      <p className="ml-4 lg:ml-0 max-w-[60ch]">{part.blurb}</p>
                       {
                         part.image &&
-                        <div className="relative w-full aspect-[4/3] bg-blue">
+                        <div className="relative w-1/3 lg:w-full aspect-square mt-8 mx-auto fill-orange bg-blue">
                           <CustomImage src={part.image} alt={part.image.alt || ""} objectFit="contain"/>
                         </div>
                       }
@@ -111,7 +111,7 @@ export default async function Home() {
                 <TeamMember 
                   member={member} 
                   key={`Team-Member-${member.name}`}
-                  className="w-full p-0 md:w-128"
+                  className="w-[350px] mx-auto p-0 md:w-[460px] md:h-[230px]"
                 />
               ))
             }
