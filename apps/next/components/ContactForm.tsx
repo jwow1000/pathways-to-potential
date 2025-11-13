@@ -1,10 +1,7 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-
-// import { sendEmail } from '@/app/utils/send-email';
 
 export type FormData = {
   name: string;
@@ -17,13 +14,22 @@ export type FormData = {
 };
 
 const ContactForm: FC = () => {
-  const { register, handleSubmit, reset } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>();
+
   const [submitState, setSubmitState] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const onSubmit = async (data: FormData) => {
+    // bot check
+    if (data.honeypot) return;
+
     setSubmitState("loading");
     setErrorMsg("");
 
@@ -31,9 +37,7 @@ const ContactForm: FC = () => {
       const res = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-        }),
+        body: JSON.stringify(data),
       });
 
       const result = await res.json();
@@ -48,84 +52,136 @@ const ContactForm: FC = () => {
     } catch (err) {
       setSubmitState("error");
       setErrorMsg("Network error");
+      console.error(err);
     }
   };
 
   return (
     <div className="bg-none font-xs text-black font-normal">
       {submitState === "success" ? (
-        <div className="w-full h-full flex-column gap-20">
-          {`thank you for contacting us someone from our team will reach out shortly.`}
+        <div className="w-full h-full flex flex-col gap-4">
+          Thank you for contacting us — someone from our team will reach out
+          shortly.
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          {/* Name */}
           <div className="mb-5">
-            <label htmlFor="name" className="mb-3 block text-base">
+            <label htmlFor="name" className="block text-base">
               Full Name
             </label>
             <input
+              id="name"
               type="text"
-              className="w-full border-b-[1px] outline-none focus:outline-blue focus:border-blue focus:shadow-lg"
-              {...register("name", { required: true })}
+              className={`w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg ${
+                errors.name ? "border-red-500" : ""
+              }`}
+              {...register("name", { required: "Full name is required" })}
             />
+            <div className="h-5">
+              {errors.name && (
+                <p className="text-red-500 text-sm">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
           </div>
+
+          {/* Email */}
           <div className="mb-5">
-            <label htmlFor="email" className="mb-3 block">
+            <label htmlFor="email" className="block">
               Email Address
             </label>
             <input
+              id="email"
               type="email"
-              className="w-full border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
-              {...register("email", { required: true })}
+              className={`w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg ${
+                errors.email ? "border-red-500" : ""
+              }`}
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Please enter a valid email address",
+                },
+              })}
+            />
+            <div className="h-5">
+              {errors.email && (
+                <p className="text-red-500 text-sm">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Subject */}
+          <div className="mb-5">
+            <label htmlFor="subject" className="block">
+              Subject
+            </label>
+            <input
+              id="subject"
+              type="text"
+              className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
+              {...register("subject")}
             />
           </div>
+
+          {/* Message */}
           <div className="mb-5">
-            <label htmlFor="message" className="mb-3 block">
+            <label htmlFor="message" className="block">
               Message
             </label>
             <textarea
+              id="message"
               rows={3}
-              className="w-full border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
-              {...register("message", { required: false })}
-            ></textarea>
+              className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
+              {...register("message", {
+                required: "Please enter a message",
+                minLength: {
+                  value: 8,
+                  message: "Message should be at least 8 characters",
+                },
+              })}
+            />
+            <div className="h-5">
+              {errors.message && (
+                <p className="text-red-500 text-sm">
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
           </div>
-          <div className="mb-5">
-            <label htmlFor="subject" className="mb-3 block">
-              Subject
-            </label>
 
-            <input
-              type="text"
-              className="w-full border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
-              {...register("message", { required: false })}
-            ></input>
-          </div>
+          {/* Insurance */}
           <div className="mb-5">
-            <label htmlFor="insurance" className="mb-3 block">
+            <label htmlFor="insurance" className="block">
               Insurance
             </label>
             <input
+              id="insurance"
               type="text"
-              className="w-full border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
-              {...register("message", { required: false })}
-            ></input>
+              className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
+              {...register("insurance")}
+            />
           </div>
+
+          {/* Insurance ID */}
           <div className="mb-5">
-            <label htmlFor="insuranceId" className="mb-3 block">
+            <label htmlFor="insuranceId" className="block">
               Insurance ID
             </label>
             <input
+              id="insuranceId"
               type="text"
-              className="w-full border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
-              {...register("message", { required: false })}
-            ></input>
+              className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
+              {...register("insuranceId")}
+            />
           </div>
 
-          {/* two honeypots with different hiding methods */}
-          <div
-            style={{ position: "absolute", left: "-9999px" }}
-            aria-hidden="true"
-          >
+          {/* Honeypots */}
+          <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
             <input
               type="text"
               {...register("honeypot")}
@@ -133,18 +189,22 @@ const ContactForm: FC = () => {
               autoComplete="off"
             />
           </div>
-
           <div className="hidden" aria-hidden="true">
             <input type="email" {...register("honeypot")} tabIndex={-1} />
           </div>
-
-          {submitState === "error" && (
-            <p className="text-red-500">{errorMsg}</p>
-          )}
+          <div className="h-5">
+            {submitState === "error" && (
+              <p className="text-red-500">{errorMsg}</p>
+            )}
+          </div>
 
           <div className="flex justify-end">
-            <button className="hover:shadow-form bg-blue p-3 font-semibold text-white outline-none">
-              Submit
+            <button
+              type="submit"
+              disabled={submitState === "loading"}
+              className="hover:shadow-form bg-blue p-3 font-semibold text-white outline-none disabled:opacity-50"
+            >
+              {submitState === "loading" ? "Sending..." : "Submit"}
             </button>
           </div>
         </form>
