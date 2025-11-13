@@ -11,6 +11,7 @@ interface Part {
   blurb: string;
   image: CustomImageType;
 }
+
 export default async function Home() {
   const info = await getLandingPage(); 
   console.log("info: ", info) 
