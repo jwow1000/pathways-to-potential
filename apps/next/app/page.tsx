@@ -55,7 +55,7 @@ export default async function Home() {
             <div className="w-full italic text-lite-orange mb-8">
               <RichText value={info.howItWorks.body} />
             </div >
-            <div className="relative w-full h-auto text-lite-orange lg:flex lg:flex-row lg:justify-center gap-8 lg:items-start lg:justify-around">
+            <div className="relative w-full max-w-[500px] mx-auto lg:max-w-none h-auto text-lite-orange lg:flex lg:flex-row lg:justify-center gap-8 lg:items-start lg:justify-around">
               {
                 info.howItWorks.parts &&
                 info.howItWorks.parts.map((part: Part, idx: number) => (
