@@ -97,7 +97,6 @@ export default async function Home() {
           <div className="md:hidden relative w-full min-h-[300px] md:w-1/2 opacity-100">
             <CustomImage src={info.contact.image} alt={"alt text baby"} />
           </div>
-         
         </section>
 
         <section className="relative w-full min-h-[500px] bg-blue text-black p-4 flex flex-col md:flex-row justify-between gap-8 py-16 text-orange">
