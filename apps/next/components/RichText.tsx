@@ -13,7 +13,10 @@ export default function RichText( {value}: RichTextProps ) {
       components={{
         block: {
           normal: ({ children }) => (
-            <p style={{lineHeight: '140%', marginBottom: '1rem', textAlign: 'left'}}>{children}</p>
+            <p 
+              style={{lineHeight: '160%', marginBottom: '1rem', textAlign: 'left'}}
+              className="max-w-[56ch] text-md md:text-xl"
+            >{children}</p>
           ),
         },
       }}

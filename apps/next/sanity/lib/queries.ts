@@ -3,7 +3,6 @@ import { defineQuery } from "next-sanity";
 export const getLandingPageQuery = defineQuery(`
 {
   "about": *[_type == "about"][0],
-  "insurances": *[_type == "acceptedInsurances"][0],
   "contact": *[_type == "contact"][0],
   "howItWorks": *[_type == "howItWorks"][0],
   "meetTeam": *[_type == "meetTeam"][0],

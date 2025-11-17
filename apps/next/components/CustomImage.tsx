@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { urlFor } from "@/sanity/lib/image";
@@ -32,7 +33,7 @@ export default function CustomImage({
   return (
     <div 
       className={`
-          realtive w-full h-full 
+          realtive w-full h-full pointer-events-none 
           transition-opacity transition-transform duration-1000 ease-in-out
           ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
           ${className || ""}

@@ -2,6 +2,7 @@ import { getLandingPage } from "@/sanity/lib/fetch";
 import CustomImage from "@/components/CustomImage";
 import RichText from "@/components/RichText";
 import ContactForm from "@/components/ContactForm";
+import Link from "next/link";
 import { CustomImage as CustomImageType, TeamMember as TeamMemberType } from "../../studio/sanity.types";
 import TeamMember from "@/components/TeamMember";
 
@@ -12,6 +13,12 @@ interface Part {
   image: CustomImageType;
 }
 
+interface Insurance {
+  link: string;
+  logo: CustomImageType;
+  name: string;
+}
+
 export default async function Home() {
   const info = await getLandingPage(); 
   console.log("info: ", info) 
@@ -20,33 +27,42 @@ export default async function Home() {
     <div className="relative w-full flex min-h-screen bg-gray">
       <main className="w-full h-full font-sans">
         <section className="relative bg-blue text-orange w-full px-4 gap-4 py-16 min-h-[500px] flex flex-row justify-between">
-          <h1 className="text-[45px] md:text-[64px] font-bold z-40 p-1">Pathways to Potential</h1>
-          <div className="absolute md:hidden top-0 left-0 w-full h-[280px] bg-gradient-to-b from-dark-blue to-transparent z-20"></div>
-          <div className="absolute md:relative top-0 left-0 w-full h-[500px] md:w-1/2 opacity-100 md:opacity-100 z-0 fill-blue">
+          
+          <div className="absolute md:hidden top-0 left-0 w-full h-[180px] bg-gradient-to-b from-dark-blue to-transparent z-10"></div>
+          <div className="w-full pt-32 md:w-1/2 lg:mx-16 flex-col z-30">
+            <h1 className="text-[40px] md:text-[58px] leading-none font-bold z-30 p-1">Pathways to Potential</h1>
+            <h2 className="w-full italic mb-8 text-[40px] font-serif font-light z-30">{info.about.title}</h2>
+            <div className="">
+              <RichText value={info.about.body} />
+            </div>
+
+          </div>
+          <div className="absolute top-0 left-0 w-full h-[180px] md:relative md:h-[500px] md:w-1/2 opacity-100 md:opacity-100 z-0 fill-blue">
             <CustomImage 
               src={info.about.image} 
               alt={"alt text baby"} 
               className="rounded" 
-              overlay={true}
+              overlay={false}
             />
           </div>
+          
         </section>
 
         <section className="relative w-full min-h-[600px] bg-gray text-dark-blue px-4 py-16 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] border-b-[1px]">
           <div className="hidden md:block relative w-full fill-gray min-h-[300px] md:w-1/2 opacity-100">
             <CustomImage 
-              src={info.about.image} 
+              src={info.meetTeam.image} 
               alt={"alt text baby"} 
               className="rounded"
               overlay={true}
             />
           </div>
           <div className="w-1/2">
-            <h2 className="w-full mb-8 text-[40px] font-serif font-bold">{info.about.title}</h2>
-            <RichText value={info.about.body} />
+            <h2 className="w-full mb-8 text-[40px] font-serif font-bold">{info.meetTeam.title}</h2>
+            <RichText value={info.meetTeam.body} />
           </div>
           <div className="md:hidden relative w-full min-h-[300px] md:w-1/2 opacity-100">
-            <CustomImage src={info.about.image} alt={"alt text baby"} />
+            <CustomImage src={info.meetTeam.image} alt={"alt text baby"} />
           </div>
         </section>
 
@@ -85,6 +101,29 @@ export default async function Home() {
           </div> 
         </section>
 
+        <section className="relative w-full min-h-[500px] bg-gray text-dark-blue p-4 flex flex-col  justify-between md:justify-around gap-8 border-t-[1px] py-16">
+          <h2 className="w-full mb-0 text-[40px] font-serif font-bold">{'Accepted Insurances'}</h2>
+          {
+            info.services.insurances &&
+            <div className="w-full flex flex-row flex-wrap gap-4">
+              {
+                info.services.insurances.map((insurance: Insurance) => (
+                  <Link href={insurance.link} className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
+                    <h3>{insurance.name}</h3>
+                    <CustomImage 
+                      src={insurance.logo} 
+                      alt={insurance.logo.alt || "no alt text provided"}
+                      objectFit="contain"
+                    />
+                  </Link>
+
+                ))
+              }
+            </div>
+          }
+          
+        </section>
+
         <section className="relative w-full min-h-[500px] bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] py-16">
           <div className="hidden md:block relative w-full min-h-[300px] md:w-1/2 opacity-100">
             <CustomImage src={info.contact.image} alt={"alt text baby"} />
@@ -117,6 +156,7 @@ export default async function Home() {
             }
           </div>
         </section>
+        
         
       </main>
     </div>

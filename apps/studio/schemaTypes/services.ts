@@ -21,5 +21,12 @@ export default defineType({
       type: 'customImage',
       title: 'Header Image',
     }),
+    defineField({
+      name: 'insurances',
+      title: 'List of Accepted Insurances',
+      description: 'upload logo and name of each accepted insurance',
+      type: 'array',
+      of: [{type: 'acceptedInsurances'}],
+    })
   ],
 })
