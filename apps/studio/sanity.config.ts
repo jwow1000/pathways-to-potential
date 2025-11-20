@@ -31,17 +31,21 @@ export default defineConfig({
 
             S.listItem()
               .title('Meet The Team')
-              .child(S.editor().schemaType('meetTeam').documentId('meetTeam')),
+              .child(S.editor().schemaType('meetTheTeam').documentId('meetTheTeam')),
             
             S.listItem()
               .title('Services')
               .child(S.editor().schemaType('services').documentId('services')),
 
+            S.listItem()
+              .title('Landing Page Assets')
+              .child(S.editor().schemaType('homePageAssets').documentId('homePageAssets')),
+
             S.divider(),
 
             // 👇 Collections (regular repeatable docs)
             ...S.documentTypeListItems().filter(
-              (item) => !['about', 'contact', 'howItWorks', 'meetTeam', 'services'].includes(item.getId()!),
+              (item) => !['about', 'contact', 'howItWorks', 'meetTheTeam', 'services', 'homePageAssets'].includes(item.getId()!),
             ),
           ]),
     }),

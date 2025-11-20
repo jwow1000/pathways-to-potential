@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-orange: rgb(255,206,127);
+  --color-orange: rgb(255,190,93);
   --color-black: #00011D;  
   --color-gray: #CACACA;
   --color-gray-500: #4b516e;
@@ -16,6 +16,7 @@
 
 body {
   background: var(--color-gray);
+  color: rgb(255, 232, 173);
   color: var(--color-black);
   font-family: var(--font-ibm-serif), Helvetica, sans-serif;
 }

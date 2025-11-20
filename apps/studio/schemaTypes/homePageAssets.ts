@@ -1,14 +1,14 @@
 import { defineType, defineField } from 'sanity'
 
 export default defineType({
-  name: 'meetTeam',
-  title: 'Meet the Team',
+  name: 'homePageAssets',
+  title: 'Assets for landing page',
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
+      name: 'headerText',
       type: 'string',
-      title: 'Page Title',
+      title: 'Main Header',
     }),
     defineField({
       name: 'body',
@@ -17,15 +17,10 @@ export default defineType({
       of: [{ type: 'block' }],
     }),
     defineField({
-      name: 'image',
+      name: 'banner',
       type: 'customImage',
       title: 'Header Image',
     }),
-    defineField({
-      name: 'teamMembers',
-      title: 'List of Team Members',
-      type: 'array',
-      of: [{type: 'teamMember'}]
-    })
+    
   ],
 })

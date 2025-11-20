@@ -14,8 +14,7 @@ export default function RichText( {value}: RichTextProps ) {
         block: {
           normal: ({ children }) => (
             <p 
-              style={{lineHeight: '160%', marginBottom: '1rem', textAlign: 'left'}}
-              className="max-w-[56ch] text-md md:text-xl"
+              className="max-w-[61ch] text-md sm:text-lg mb-4 leading-8"
             >{children}</p>
           ),
         },
