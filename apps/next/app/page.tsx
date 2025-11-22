@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <div className="relative flex min-h-screen bg-gray p-0 lg:p-2">
       <main className="w-full h-full font-sans">
-        <section className="relative bg-blue text-orange w-full h-48 gap-4 flex flex-row justify-center items-center mb-2">
+        <section className="relative bg-blue text-orange w-full h-48 gap-4 p-4 flex flex-row justify-center items-center mb-2">
           <h1 className="text-[45px] italic md:text-[58px] leading-none font-bold z-40 p-1 text-lite-blue">Pathways to Potential</h1>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-0% from-black/80 to-black/50 to-100% z-30"></div>
           <div className="absolute w-full h-full top-0 left-0 z-20">
@@ -38,20 +38,31 @@ export default async function Home() {
                 className="rounded" 
                 overlay={false}
                 objectFit="cover"
+                animation={false}
               />
             }
 
           </div>
         </section>
 
-        <section className="relative bg-blue text-orange w-full p-4 gap-4 min-h-[500px] flex flex-row justify-between lg:px-16">
+        <section className="relative bg-blue text-orange w-full p-4 gap-4 min-h-[500px] 
+          flex flex-col md:flex-row justify-between 
+          lg:px-16"
+        >
           
-          <div className="w-full md:w-1/2 pt-6 md:pt-0 flex-col z-30">
+          <div className="w-full md:w-1/2 pt-0 md:pt-6 md:pt-0 flex-col z-30">
             <h2 className="w-full md:w-1/2 my-8 font-bold text-[40px] font-serif z-30">{info.about.title}</h2>
             <div className="w-fill mx-auto">
               <RichText value={info.about.body} />
             </div>
 
+          </div>
+          <div className="block md:hidden w-full h-[400px]">
+            <CustomImage
+              src={info.landingPage.banner} 
+              alt={info.landingPage.banner.alt} 
+              objectFit="cover"
+            />
           </div>
           <div className="w-full md:w-1/2 p-6 fill-blue">
              <CustomImage 
@@ -63,9 +74,37 @@ export default async function Home() {
                 objectFit="cover"
               /> 
           </div>
-            
-          
         </section>
+
+        <section className="relative bg-gray text-dark-blue w-full p-4 gap-4 min-h-[800px] flex flex-col md:flex-row justify-between gap-0 md:gap-12 lg:px-16">
+          <div className="hidden md:block w-full md:w-1/2 p-6 fill-gray">
+             <CustomImage 
+                src={info.landingPage.banner} 
+                alt={info.landingPage.banner.alt} 
+                className="rounded" 
+                overlay={true}
+                waveHeightRatio={0.1}
+                objectFit="cover"
+              /> 
+          </div>
+
+          <div className="block md:hidden w-full h-[400px]">
+            <CustomImage
+              src={info.landingPage.banner} 
+              alt={info.landingPage.banner.alt} 
+              objectFit="cover"
+            />
+          </div>
+          <div className="w-full md:w-1/2 m-0 md:my-8 font-serif z-30">
+            <h2 className="m-0 text-[40px] w-fit font-bold">{`Why Choose Us`}</h2>
+            <div className="m-0 md:mt-8">
+              <RichText value={info.landingPage.whyChooseUsText} />
+            </div>
+
+          </div>
+        
+        </section>
+
 
         {/* <section className="relative w-full min-h-[300px] lg:min-h-screen bg-gray text-dark-blue px-4 py-16 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] border-b-[1px]">
           <div className="hidden md:block relative w-full fill-gray min-h-[300px] md:w-1/2 opacity-100">

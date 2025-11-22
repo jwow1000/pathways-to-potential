@@ -17,6 +17,12 @@ export default defineType({
       of: [{ type: 'block' }],
     }),
     defineField({
+      name: 'whyChooseUsText',
+      type: 'array',
+      title: 'Why Choose Us Text',
+      of:[{ type: 'block'}],
+    }),
+    defineField({
       name: 'banner',
       type: 'customImage',
       title: 'Header Image',

@@ -29,7 +29,7 @@ export default function Header({
         <Link
           href="/"
           aria-label="Home"
-          className="fill-inherit w-fit text-sm md:text-[30px] inline pointer-events-auto font-light italic border-blue border-l-[2px] border-b-[2px] bg-orange/45 p-2 rounded"
+          className="fill-inherit w-fit text-lg md:text-[30px] inline pointer-events-auto font-light italic border-blue border-l-[2px] border-b-[2px] bg-orange/45 p-2 rounded"
         >
           {`Pathways to Potential`}
         </Link>
