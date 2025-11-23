@@ -4,8 +4,8 @@ export const getLandingPageQuery = defineQuery(`
 {
   "about": *[_type == "about"][0],
   "contact": *[_type == "contact"][0],
-  "howItWorks": *[_type == "howItWorks"][0],
   "meetTheTeam": *[_type == "meetTheTeam"][0],
+  "howItWorks": *[_type == "howItWorks"][0],
   "services": *[_type == "services"][0],
   "landingPage": *[_type == "homePageAssets"][0],
 }

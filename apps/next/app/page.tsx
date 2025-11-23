@@ -106,24 +106,7 @@ export default async function Home() {
         </section>
 
 
-        {/* <section className="relative w-full min-h-[300px] lg:min-h-screen bg-gray text-dark-blue px-4 py-16 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] border-b-[1px]">
-          <div className="hidden md:block relative w-full fill-gray min-h-[300px] md:w-1/2 opacity-100">
-            <CustomImage 
-              src={info.meetTeam?.image} 
-              alt={"alt text baby"} 
-              className="rounded"
-              overlay={true}
-              waveHeightRatio={0.2}
-            />
-          </div>
-          <div className="w-full md:w-1/2">
-            <h2 className="w-full mb-8 text-[40px] font-serif font-bold">{info.meetTeam.title}</h2>
-            <RichText value={info.meetTeam?.body} />
-          </div>
-          <div className="block md:hidden relative w-full h-[400px]">
-            <CustomImage src={info.meetTeam?.image} alt={"alt text baby"} />
-          </div>
-        </section> */}
+        
         
         <section className="relative w-full min-h-screen bg-blue text-orange flex flex-col md:flex-row justify-between gap-0 md:gap-8 p-4 md:py-16 lg:px-16">
           <div className="w-full md:w-1/2">
@@ -143,6 +126,60 @@ export default async function Home() {
             />
           </div> 
         </section>
+        {
+          info.meetTheTeam.teamMembers.length > 0 &&
+          <section className="relative w-full bg-gray text-dark-blue px-2 md:px-16 py-2 md:py-16 flex flex-col border-t-[1px] border-b-[1px]">
+            {/* <div className="hidden md:block relative w-full fill-gray min-h-[300px] md:w-1/2 opacity-100">
+              {
+                info.meetTheTeam.image &&
+                <CustomImage 
+                src={info.meetTheTeam?.image} 
+                alt={"alt text baby"} 
+                className="rounded"
+                overlay={true}
+                waveHeightRatio={0.1}
+              />
+              }
+            </div> */}
+            <div className="w-full md:w-1/2">
+              <h2 className="w-full text-[40px] font-serif font-bold">{info.meetTheTeam.title}</h2>
+              <RichText value={info.meetTheTeam?.body} />
+            </div>
+            <div className="w-full flex flex-col items-center justify-around md:flex-row gap-8 my-6 ">
+              {
+                info.meetTheTeam.teamMembers.map((member: TeamMemberType) => (
+                  <TeamMember 
+                    member={member} 
+                    key={`Team-Member-${member.name}`}
+                    className="w-full md:w-[450px] md:mx-0 p-0 md:h-[330px]"
+                  />
+                ))
+              }
+            </div>
+            {/* <div className="block md:hidden relative w-full h-[400px]">
+              <CustomImage src={info.meetTheTeam?.image} alt={"alt text baby"} />
+            </div> */}
+          </section>
+        } 
+
+        {/* <section className="relative w-full min-h-[500px] bg-blue text-black p-4 flex flex-col md:flex-row justify-between gap-8 py-16 text-orange">
+          <div>
+            <h2 className="w-full mb-8 text-[40px] text-orange font-serif font-bold">{info.meetTeam.title}</h2>
+            <RichText value={info.meetTeam.body} />
+          </div>
+
+          <div className="w-full flex">
+            {
+              info.meetTeam.teamMembers.map((member: TeamMemberType) => (
+                <TeamMember 
+                  member={member} 
+                  key={`Team-Member-${member.name}`}
+                  className="w-[350px] mx-auto p-0 md:w-[460px] md:h-[230px]"
+                />
+              ))
+            }
+          </div>
+        </section> */}
 
        
 
@@ -228,24 +265,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* <section className="relative w-full min-h-[500px] bg-blue text-black p-4 flex flex-col md:flex-row justify-between gap-8 py-16 text-orange">
-          <div>
-            <h2 className="w-full mb-8 text-[40px] text-orange font-serif font-bold">{info.meetTeam.title}</h2>
-            <RichText value={info.meetTeam.body} />
-          </div>
-
-          <div className="w-full flex">
-            {
-              info.meetTeam.teamMembers.map((member: TeamMemberType) => (
-                <TeamMember 
-                  member={member} 
-                  key={`Team-Member-${member.name}`}
-                  className="w-[350px] mx-auto p-0 md:w-[460px] md:h-[230px]"
-                />
-              ))
-            }
-          </div>
-        </section> */}
+  
         
         
       </main>

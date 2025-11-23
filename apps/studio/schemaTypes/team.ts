@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity';
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'teamMember',
@@ -14,8 +14,18 @@ export default defineType({
     }),
     defineField({
       name: 'slug',
+      title: 'Slug',
       type: 'slug',
-      options: {source: 'title', maxLength: 96},
+      options: {
+        source: 'name',
+        maxLength: 96,
+        slugify: (input) =>
+          input
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .replace(/[^a-z0-9-]/g, '')
+            .slice(0, 96),
+      },
     }),
     defineField({
       name: 'portrait',
@@ -28,7 +38,7 @@ export default defineType({
       title: 'Biography',
       description: 'Short Bio',
       type: 'array',
-      of: [{type: 'block'}], 
-    })
-  ]
+      of: [{type: 'block'}],
+    }),
+  ],
 })

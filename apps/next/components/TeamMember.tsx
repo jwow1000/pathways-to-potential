@@ -10,22 +10,22 @@ interface TeamMemberProps {
 export default async function TeamMember({member, className}: TeamMemberProps) {
   const bio = member.bio as PortableTextBlock[];
   return (
-    <div className={`relative flex flex-row gap-8 p-2 ${className}`}>
-      <div className="w-full aspect-square">
+    <div className={`relative flex flex-row gap-4 ${className}`}>
+      <div className="w-1/2 md:h-2/3 aspect-square">
         {
           member.portrait &&
           <CustomImage src={member.portrait} alt={member.portrait.alt || "no alt text"}
-            className="rounded-full aspect-square"
+            className="rounded-full"
           />
         }
           
       </div>
-      <div className="w-full text-orange flex flex-col gap-2">
+      <div className="w-1/2 text-inherit flex flex-col gap-2">
         <h2 className="font-bold">{member.name}</h2>
-        <div className="text-xs">
+        <div className="pr-2">
           {
             member.bio &&
-            <RichText value={bio} />
+            <RichText value={bio} bio={true}/>
           }
 
         </div>
