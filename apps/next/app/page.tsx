@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <div className="relative flex min-h-screen bg-gray p-0 lg:p-2">
       <main className="w-full h-full font-sans">
-        <section className="relative bg-blue text-orange w-full h-48 gap-4 p-4 flex flex-row justify-center items-center mb-2">
+        <section className="relative bg-blue text-orange w-full h-48 gap-0 md:gap-4 p-4 flex flex-row justify-center items-center mb-2">
           <h1 className="text-[45px] italic md:text-[58px] leading-none font-bold z-40 p-1 text-lite-blue">Pathways to Potential</h1>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-0% from-black/80 to-black/50 to-100% z-30"></div>
           <div className="absolute w-full h-full top-0 left-0 z-20">
@@ -50,8 +50,8 @@ export default async function Home() {
           lg:px-16"
         >
           
-          <div className="w-full md:w-1/2 pt-0 md:pt-6 md:pt-0 flex-col z-30">
-            <h2 className="w-full md:w-1/2 my-8 font-bold text-[40px] font-serif z-30">{info.about.title}</h2>
+          <div className="w-full md:w-1/2 pt-0 md:pt-6 flex-col z-30">
+            <h2 className="w-full my-0 md:my-8 font-bold text-[40px] font-serif z-30">{info.about.title}</h2>
             <div className="w-fill mx-auto">
               <RichText value={info.about.body} />
             </div>
@@ -64,11 +64,11 @@ export default async function Home() {
               objectFit="cover"
             />
           </div>
-          <div className="w-full md:w-1/2 p-6 fill-blue">
+          <div className="w-full md:w-1/2 fill-blue">
              <CustomImage 
                 src={info.landingPage.banner} 
                 alt={info.landingPage.banner.alt} 
-                className="rounded" 
+                className="" 
                 overlay={true}
                 waveHeightRatio={0.1}
                 objectFit="cover"
@@ -125,7 +125,7 @@ export default async function Home() {
           </div>
         </section> */}
         
-        <section className="relative w-full min-h-screen bg-blue text-orange p-4 flex flex-col md:flex-row justify-between gap-8 py-16 lg:px-16">
+        <section className="relative w-full min-h-screen bg-blue text-orange flex flex-col md:flex-row justify-between gap-0 md:gap-8 p-4 md:py-16 lg:px-16">
           <div className="w-full md:w-1/2">
             <h2 className="w-full mb-8 text-[40px] text-orange font-serif font-bold">{info.services.title}</h2> 
             <RichText value={info.services.body} />
@@ -146,21 +146,32 @@ export default async function Home() {
 
        
 
-        <section className="relative w-full min-h-screen bg-gray text-dark-blue p-4 flex flex-col  justify-between md:justify-around gap-8 border-t-[1px] py-16">
-          <h2 className="w-full mb-0 text-[40px] font-serif font-bold">{'Accepted Insurances'}</h2>
+        <section className="relative w-full bg-gray text-dark-blue p-4 flex flex-col gap-8 border-t-[1px] md:py-16">
+          <h2 className="w-full mb-0 text-[30px] font-serif font-bold">{'Accepted Insurances'}</h2>
           {
             info.services.insurances &&
-            <div className="w-full flex flex-row flex-wrap gap-4">
+            <div className="w-full flex flex-row flex-wrap gap-4 items-center justify-around">
               {
                 info.services.insurances.map((insurance: Insurance) => (
-                  <Link href={insurance.link} className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
-                    <h3>{insurance.name}</h3>
-                    <CustomImage 
-                      src={insurance.logo} 
-                      alt={insurance.logo.alt || "no alt text provided"}
-                      objectFit="contain"
-                    />
-                  </Link>
+                  insurance.link ?
+                    <Link href={insurance.link} className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
+                      <h3>{insurance.name}</h3>
+                      <CustomImage 
+                        src={insurance.logo} 
+                        alt={insurance.logo.alt || "no alt text provided"}
+                        objectFit="contain"
+                      />
+                    </Link>
+                  :
+                    <div className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
+                      <h3>{insurance.name}</h3>
+                      <CustomImage 
+                        src={insurance.logo} 
+                        alt={insurance.logo.alt || "no alt text provided"}
+                        objectFit="contain"
+                      />
+                    </div>
+
 
                 ))
               }
@@ -203,7 +214,7 @@ export default async function Home() {
           </div> 
         </section>
 
-        <section className="relative w-full min-h-[500px] bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] py-16">
+        <section className="relative w-full bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] py-0 md:py-16">
           <div className="hidden md:block relative w-full min-h-[300px] md:w-1/2 opacity-100">
             <CustomImage src={info.contact.image} alt={"alt text baby"} />
           </div>

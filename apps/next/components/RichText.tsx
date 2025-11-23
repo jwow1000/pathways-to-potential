@@ -14,7 +14,7 @@ export default function RichText( {value}: RichTextProps ) {
         block: {
           normal: ({ children }) => (
             <p 
-              className="max-w-[61ch] text-md sm:text-lg mb-4 leading-8"
+              className="max-w-[48ch] text-md sm:text-lg mb-4 leading-8"
             >{children}</p>
           ),
         },
