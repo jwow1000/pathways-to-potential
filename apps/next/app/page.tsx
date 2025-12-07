@@ -181,41 +181,6 @@ export default async function Home() {
           </div>
         </section> */}
 
-       
-
-        <section className="relative w-full bg-gray text-dark-blue p-2 md:p-6 flex flex-col gap-8 border-t-[1px] md:pl-16">
-          <h2 className="w-full mb-0 text-[30px] font-serif font-bold">{'Accepted Insurances'}</h2>
-          {
-            info.services.insurances &&
-            <div className="w-full flex flex-row flex-wrap gap-4 items-center justify-around">
-              {
-                info.services.insurances.map((insurance: Insurance) => (
-                  insurance.link ?
-                    <Link href={insurance.link} className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
-                      <h3>{insurance.name}</h3>
-                      <CustomImage 
-                        src={insurance.logo} 
-                        alt={insurance.logo.alt || "no alt text provided"}
-                        objectFit="contain"
-                      />
-                    </Link>
-                  :
-                    <div className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
-                      <h3>{insurance.name}</h3>
-                      <CustomImage 
-                        src={insurance.logo} 
-                        alt={insurance.logo.alt || "no alt text provided"}
-                        objectFit="contain"
-                      />
-                    </div>
-
-
-                ))
-              }
-            </div>
-          }
-        </section>
-
         <section className="relative w-full min-h-screen bg-blue text-black flex flex-col md:flex-row justify-between gap-8 p-2 md:p-6">
           <div className="relative w-full">
             <h2 className="w-full mb-8 text-[40px] text-orange font-serif font-bold">{info.howItWorks.title}</h2>
@@ -249,6 +214,39 @@ export default async function Home() {
               }
             </div>
           </div> 
+        </section>
+
+        <section className="relative w-full bg-gray text-dark-blue p-2 md:p-6 flex flex-col gap-8 border-t-[1px] md:pl-16">
+          <h2 className="w-full mb-0 text-[30px] font-serif font-bold">{'Accepted Insurances'}</h2>
+          {
+            info.services.insurances &&
+            <div className="w-full flex flex-row flex-wrap gap-4 items-center justify-around">
+              {
+                info.services.insurances.map((insurance: Insurance) => (
+                  insurance.link ?
+                    <Link href={insurance.link} className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
+                      <h3>{insurance.name}</h3>
+                      <CustomImage 
+                        src={insurance.logo} 
+                        alt={insurance.logo.alt || "no alt text provided"}
+                        objectFit="contain"
+                      />
+                    </Link>
+                  :
+                    <div className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
+                      <h3>{insurance.name}</h3>
+                      <CustomImage 
+                        src={insurance.logo} 
+                        alt={insurance.logo.alt || "no alt text provided"}
+                        objectFit="contain"
+                      />
+                    </div>
+
+
+                ))
+              }
+            </div>
+          }
         </section>
 
         <section className="relative w-full bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] py-0 md:py-16">

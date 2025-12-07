@@ -143,6 +143,10 @@ const ContactForm: FC = () => {
                   value: 8,
                   message: "Message should be at least 8 characters",
                 },
+                maxLength: {
+                  value: 128,
+                  message: 'max 128 charachters',
+                },
               })}
             />
             <div className="h-5">
@@ -164,19 +168,6 @@ const ContactForm: FC = () => {
               type="text"
               className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
               {...register("insurance")}
-            />
-          </div>
-
-          {/* Insurance ID */}
-          <div className="mb-5">
-            <label htmlFor="insuranceId" className="block">
-              Insurance ID
-            </label>
-            <input
-              id="insuranceId"
-              type="text"
-              className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
-              {...register("insuranceId")}
             />
           </div>
 
