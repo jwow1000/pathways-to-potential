@@ -11,6 +11,13 @@ export default defineType({
       title: 'Page Title',
     }),
     defineField({
+      name: 'subheading',
+      type: 'array',
+      title: 'Short Text',
+      description: 'for front page, can just be first sentences from the body',
+      of: [{ type: 'block' }],
+    }),
+    defineField({
       name: 'body',
       type: 'array',
       title: 'Content',

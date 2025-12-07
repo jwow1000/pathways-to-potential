@@ -15,8 +15,11 @@ export default function RichText( {value, bio=false}: RichTextProps ) {
         block: {
           normal: ({ children }) => (
             <p 
-              className={`max-w-[48ch] md:text-lg mb-4 leading-8 ${bio ? "text-[14px] md:text-[15px] leading-[120%]" : ""}`}
+              className={`max-w-[50ch] text-normal md:text-lg lg:text-xl mb-4 leading-8 ${bio ? "text-[14px] md:text-[15px] leading-[120%]" : ""}`}
             >{children}</p>
+          ),
+          h2: ({children}) => (
+            <h2 className="text-[28px] md:text-[32px] font-bold my-4">{children}</h2>
           ),
         },
       }}

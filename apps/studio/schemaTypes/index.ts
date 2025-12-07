@@ -7,6 +7,7 @@ import howItWorks from "./howItWorks";
 import services from "./services";
 import about from "./about";
 import homePageAssets from "./homePageAssets";
+import blogPost from "./blogPost";
 
 export const schemaTypes = [
   about,
@@ -16,6 +17,7 @@ export const schemaTypes = [
   customImage,
   meetTheTeam,
   services,
+  blogPost,
   team,
   homePageAssets
 ]
