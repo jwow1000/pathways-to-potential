@@ -9,6 +9,7 @@ interface RichTextProps {
 
 export default function RichText( {value, bio=false}: RichTextProps ) {
   return (
+    
     <PortableText
       value={value}
       components={{

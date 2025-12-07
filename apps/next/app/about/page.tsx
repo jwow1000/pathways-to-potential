@@ -5,6 +5,10 @@ import CustomImage from "@/components/CustomImage";
 export default async function Archive() {
   const info = await getAbout();  
   console.log("info: ", info);
+  const bodyBlocks = info.body?.map(block => ({
+    ...block,
+    children: block.children ?? [],
+  })) ?? [];
 
   return (
     <section className="relative bg-blue text-gray w-full p-2 md:p-6 gap-8
@@ -32,7 +36,7 @@ export default async function Archive() {
             {
               info.body &&
               <div className="w-full mx-auto">
-                <RichText value={info.body} />
+                <RichText value={bodyBlocks} />
               </div>
             }
 
