@@ -57,7 +57,7 @@ const ContactForm: FC = () => {
   };
 
   return (
-    <div className="bg-none font-xs text-black font-normal">
+    <div className="bg-none font-xs text-black font-normal my-12">
       {submitState === "success" ? (
         <div className="w-full h-full flex flex-col gap-4">
           Thank you for contacting us — someone from our team will reach out

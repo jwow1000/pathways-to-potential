@@ -27,7 +27,7 @@ export default async function Home() {
     <div className="relative flex min-h-screen bg-gray p-0 lg:p-2">
       <main className="w-full h-full font-sans">
 
-        <section className="relative bg-blue text-gray w-full p-2 md:p-6 gap-8
+        <section className="relative bg-blue text-gray w-full p-6 md:p-6 gap-8
           flex flex-col md:flex-row justify-between 
           lg:pl-16"
         >
@@ -58,7 +58,7 @@ export default async function Home() {
          
         </section>
 
-        <section className="relative bg-gray text-dark-blue w-full p-2 md:p-6 gap-4 min-h-[600px] flex flex-col md:flex-row justify-between gap-0 md:gap-12 lg:pr-16">
+        <section className="relative bg-gray text-dark-blue w-full p-6 gap-4 min-h-[600px] flex flex-col md:flex-row justify-between gap-0 md:gap-12 lg:pr-16">
           <div className="hidden md:block w-full md:w-1/2 fill-gray">
              <CustomImage 
                 src={info.landingPage.banner} 
@@ -77,7 +77,7 @@ export default async function Home() {
               objectFit="cover"
             />
           </div>
-          <div className="w-full md:w-1/2 m-0 md:my-8 font-serif z-30">
+          <div className="w-fit mx-auto md:my-8 font-serif z-30">
             <h2 className="m-0 text-[28px] w-fit font-bold">{`Why Choose Us`}</h2>
             <div className="m-0 md:mt-8">
               <RichText value={info.landingPage.whyChooseUsText} />
@@ -90,8 +90,8 @@ export default async function Home() {
 
         
         
-        <section className="relative w-full min-h-[600px] bg-blue text-lite-orange flex flex-col md:flex-row justify-between gap-0 md:gap-8 p-2 md:p-6 lg:pl-16">
-          <div className="w-full md:w-1/2">
+        <section className="relative w-full min-h-[600px] bg-blue text-lite-orange flex flex-col md:flex-row justify-between gap-0 md:gap-8 p-6 lg:pl-16">
+          <div className="w-fit mx-auto md:w-1/2">
             <h2 className="w-full mb-8 text-[28px] font-bold font-serif">{info.services.title}</h2> 
             <RichText value={info.services.body} />
           </div>
@@ -124,10 +124,10 @@ export default async function Home() {
               }
             </div> */}
             <div className="w-full md:w-1/2 my-4">
-              <h2 className="w-full text-[28px] font-serif m-0 font-bold">{info.meetTheTeam.title}</h2>
+              <h2 className="w-full text-[28px] font-serif mb-8 font-bold">{info.meetTheTeam.title}</h2>
               <RichText value={info.meetTheTeam?.body} />
             </div>
-            <div className="w-full flex flex-col items-center justify-around md:flex-row gap-8 my-6 ">
+            <div className="w-full max-w-[500px] md:max-w-none mx-auto md:mx-0 flex flex-col items-center justify-around md:flex-row gap-8 my-6 ">
               {
                 info.meetTheTeam.teamMembers.map((member: TeamMemberType) => (
                   <TeamMember 
@@ -163,7 +163,7 @@ export default async function Home() {
           </div>
         </section> */}
 
-        <section className="relative w-full min-h-[600px] bg-blue text-black flex flex-col md:flex-row justify-between gap-8 p-2 md:p-6">
+        <section className="relative w-full min-h-[600px] bg-blue text-black flex flex-col md:flex-row justify-between gap-8 p-6">
           <div className="relative w-full">
             <h2 className="w-full mb-8 text-[40px] text-lite-orange font-serif font-bold">{info.howItWorks.title}</h2>
             <div className="w-full italic text-lite-orange mb-8">
@@ -198,7 +198,7 @@ export default async function Home() {
           </div> 
         </section>
 
-        <section className="relative w-full bg-gray text-dark-blue p-2 md:p-6 flex flex-col gap-8 border-t-[1px] md:pl-16">
+        <section className="relative w-full bg-gray text-dark-blue p-6 flex flex-col gap-8 border-t-[1px] md:pl-16">
           <h2 className="w-full mb-0 text-[30px] font-serif font-bold">{'Accepted Insurances'}</h2>
           {
             info.services.insurances &&
@@ -206,7 +206,7 @@ export default async function Home() {
               {
                 info.services.insurances.map((insurance: Insurance) => (
                   insurance.link ?
-                    <Link href={insurance.link} className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
+                    <Link href={insurance.link} className="w-38 h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
                       {/* <h3>{insurance.name}</h3> */}
                       <CustomImage 
                         src={insurance.logo} 
@@ -231,16 +231,18 @@ export default async function Home() {
           }
         </section>
 
-        <section className="relative w-full bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] py-0 md:py-16">
+        <section className="relative w-full bg-gray text-dark-blue p-4 flex flex-col md:flex-row justify-between md:justify-around gap-8 border-t-[1px] py-4 md:py-16">
           <div className="hidden md:block relative w-full min-h-[300px] md:w-1/2 opacity-100">
             <CustomImage src={info.contact.image} alt={"alt text baby"} />
           </div>
           <div className="w-full md:w-1/2 max-w-[55ch] mx-auto">
             <h2 className="w-full mb-0 text-[40px] font-serif font-bold">{info.contact.title}</h2>
-            <RichText value={info.contact.body} />
+            <div className="my-4">
+              <RichText value={info.contact.body}/>
+            </div>
             <ContactForm />
           </div>
-          <div className="md:hidden relative w-full min-h-[300px] md:w-1/2 opacity-100">
+          <div className="block md:hidden relative w-full h-[400px] md:w-1/2 opacity-100">
             <CustomImage src={info.contact.image} alt={"alt text baby"} />
           </div>
         </section>

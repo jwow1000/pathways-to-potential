@@ -18,6 +18,12 @@ export default function Header({ className = "" }: PCHeaderProps) {
 
   return (
     <div className="p-0 md:p-2">
+      {
+        menuOpen &&
+        <div className="fixed top-0 left-0 w-full h-full z-50" onClick={handleMenuClick}>
+            
+        </div>
+      }
       <header
         className={cx(
           "relative w-full flex items-center z-50 p-4 h-24 text-inherit md:p-8 fixed left-0 top-0 pointer-events-none fill-mainBlack text-black bg-gray border-black border-[1px] font-serif",
@@ -45,7 +51,7 @@ export default function Header({ className = "" }: PCHeaderProps) {
             color={"#00011D"}
           />
         </div>
-        <div className="hidden sm:flex text-black text-xl flex-row gap-10 w-fit mr-0 ml-auto pointer-events-auto font-serif">
+        <div className="hidden sm:flex text-black text-xl flex-row gap-10 w-fit mr-0 ml-auto pointer-events-auto font-serif" onClick={handleMenuClick}>
           <Link href={`/about`} aria-label="About Us">{`About Us`}</Link>
           <Link href={`/`} aria-label="">{`Contact`}</Link>
           <Link href={`/`} aria-label="Services">{`Services`}</Link>
@@ -61,11 +67,13 @@ export default function Header({ className = "" }: PCHeaderProps) {
                 : "-translate-y-0 opacity-0 pointer-events-none"
             }
           `}
+          onClick={handleMenuClick}
         >
           <Link href={`/about`} aria-label="About Us">{`About Us`}</Link>
           <Link href={`/`} aria-label="Contact">{`Contact`}</Link>
           <Link href={`/`} aria-label="Services">{`Services`}</Link>
         </div>
+        
       </header>
     </div>
   );
