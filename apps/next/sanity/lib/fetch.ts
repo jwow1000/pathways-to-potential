@@ -7,8 +7,9 @@ import {
   getMeetTeamQuery,
   getServicesQuery,
   getLandingPageQuery,
+  getFAQsQuery,
 } from "./queries";
-import { About, AcceptedInsurances, Contact, HowItWorks, MeetTeam, Services } from "@/../studio/sanity.types";
+import { About, AcceptedInsurances, Contact, HowItWorks, MeetTheTeam, Services, Faq } from "@/../studio/sanity.types";
 
 export async function getLandingPage() {
   return await client.fetch(getLandingPageQuery);
@@ -26,8 +27,14 @@ export async function getHow() {
   return await client.fetch<HowItWorks>(getHowQuery);
 }
 export async function getMeetTeam() {
-  return await client.fetch<MeetTeam>(getMeetTeamQuery);
+  return await client.fetch<MeetTheTeam>(getMeetTeamQuery);
 }
 export async function getServices() {
   return await client.fetch<Services>(getServicesQuery);
 }
+export async function getFAQs() {
+  return await client.fetch<Faq[]>(getFAQsQuery);
+}
+
+
+

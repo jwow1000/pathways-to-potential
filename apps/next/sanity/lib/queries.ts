@@ -15,6 +15,10 @@ export const getAboutQuery = defineQuery(`
   *[_type == "about"] [0]
 `);
 
+export const getFAQsQuery = defineQuery(`
+  *[_type == "faq"] [0...20]
+`);
+
 export const getInsurancesQuery = defineQuery(`
   *[_type == "acceptedInsurances"] [0]
 `);

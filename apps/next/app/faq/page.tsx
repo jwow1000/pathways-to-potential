@@ -1,45 +1,28 @@
-import { getContact } from "@/sanity/lib/fetch";
+import { getFAQs } from "@/sanity/lib/fetch";
 import RichText from "@/components/RichText";
-import ContactForm from "@/components/ContactForm";
-import CustomImage from "@/components/CustomImage";
 
-export default async function FAQ() {
-  const info = await getContact();  
+export default async function FAQs() {
+  const info = await getFAQs();  
   console.log("info: ", info);
-  const bodyBlocks = info.body?.map(block => ({
-    ...block,
-    children: block.children ?? [],
-  })) ?? [];
+  
 
   return (
-    <section className="relative bg-gray text-black w-full p-2 md:p-6 gap-8
-          flex flex-col lg:flex-row justify-between 
+    <section className="relative min-h-[calc(100vh-190px)] bg-gray text-black w-full p-6 gap-8
+          
           lg:pl-16"
         >
-          <div className="w-fit mx-auto lg:w-1/2 min-w-[300px] max-w-[500px] pt-0 flex-col z-30">
-            <h2 className="w-full mb-6 text-[28px] font-serif z-30">{info.title}</h2>
-            {
-              info.body &&
-              <div className="w-full mx-auto">
-                <RichText value={bodyBlocks} />
+          <h1 className="w-fit mt-12 mx-auto text-[28px] font-serif font-bold z-30">{`FAQs`}</h1>
+          <h2 className="w-fit mx-auto text-lg max-w-[60ch] mt-6">{`Have questions? Check out some of these frequently asked questions (FAQs) for more information on what type of insurance we take, our fees, and more.
+          `}</h2> 
+          {
+            info &&
+            info.map((faq) => (
+              <div key={`faq-${faq.question}`} className="mt-16 max-w-[800px] mx-auto">
+                <h3 className="font-bold text-xl my-4">{faq.question}</h3>
+                <RichText value={faq.answer} />
               </div>
-            }
-            <ContactForm />
-
-          </div>
-          <div className="w-full h-[300px] lg:h-auto lg:w-1/2 pt-0 flex-col z-30">
-            {
-              info.image &&
-              <CustomImage 
-                src={info.image} 
-                alt={info.image.alt} 
-                className="rounded" 
-                overlay={false}
-                objectFit="cover"
-                animation={true}
-              />
-            }
-          </div>
+            ))
+          }
          
         </section>
    

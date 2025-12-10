@@ -1,8 +1,11 @@
+'use client'
+
 import Link from "next/link";
 
 
 
 export default function Footer() {
+  
   return (
     <div className="w-full p-0 md:p-2 mb-8">
       <footer
@@ -15,8 +18,12 @@ export default function Footer() {
           target="_blank" 
           rel="noreferrer" 
         >website: Jeremy Wiles-Young</Link>
-        <div className="absolute right-2 flex flex-row gap-3">
-          <Link
+        <div className="absolute right-6 flex flex-row gap-3">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className=""
+          >{`Back to Top ↑`}</button>
+          {/* <Link
             href={`/about`}
             aria-label="About Us"
           >{`About Us`}</Link>
@@ -27,7 +34,7 @@ export default function Footer() {
           <Link
             href={`/`}
             aria-label="Services"
-          >{`Services`}</Link>
+          >{`Services`}</Link> */}
         </div>
         
       </footer>

@@ -8,6 +8,7 @@ import services from "./services";
 import about from "./about";
 import homePageAssets from "./homePageAssets";
 import blogPost from "./blogPost";
+import faq from "./faq";
 
 export const schemaTypes = [
   about,
@@ -19,5 +20,6 @@ export const schemaTypes = [
   services,
   blogPost,
   team,
+  faq,
   homePageAssets
 ]
