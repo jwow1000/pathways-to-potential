@@ -111,18 +111,7 @@ export default async function Home() {
         {
           info.meetTheTeam.teamMembers.length > 0 &&
           <section className="relative w-full bg-gray text-dark-blue px-2 md:px-16 py-2 md:py-8 flex flex-col border-t-[1px] border-b-[1px]">
-            {/* <div className="hidden md:block relative w-full fill-gray min-h-[300px] md:w-1/2 opacity-100">
-              {
-                info.meetTheTeam.image &&
-                <CustomImage 
-                src={info.meetTheTeam?.image} 
-                alt={"alt text baby"} 
-                className="rounded"
-                overlay={true}
-                waveHeightRatio={0.1}
-              />
-              }
-            </div> */}
+           
             <div className="w-full md:w-1/2 my-4">
               <h2 className="w-full text-[28px] font-serif mb-8 font-bold">{info.meetTheTeam.title}</h2>
               <RichText value={info.meetTheTeam?.body} />
@@ -138,30 +127,9 @@ export default async function Home() {
                 ))
               }
             </div>
-            {/* <div className="block md:hidden relative w-full h-[400px]">
-              <CustomImage src={info.meetTheTeam?.image} alt={"alt text baby"} />
-            </div> */}
+           
           </section>
         } 
-
-        {/* <section className="relative w-full min-h-[500px] bg-blue text-black p-4 flex flex-col md:flex-row justify-between gap-8 py-16 text-orange">
-          <div>
-            <h2 className="w-full mb-8 text-[40px] text-orange font-serif font-bold">{info.meetTeam.title}</h2>
-            <RichText value={info.meetTeam.body} />
-          </div>
-
-          <div className="w-full flex">
-            {
-              info.meetTeam.teamMembers.map((member: TeamMemberType) => (
-                <TeamMember 
-                  member={member} 
-                  key={`Team-Member-${member.name}`}
-                  className="w-[350px] mx-auto p-0 md:w-[460px] md:h-[230px]"
-                />
-              ))
-            }
-          </div>
-        </section> */}
 
         <section className="relative w-full min-h-[600px] bg-blue text-black flex flex-col md:flex-row justify-between gap-8 p-6">
           <div className="relative w-full">
@@ -207,7 +175,6 @@ export default async function Home() {
                 info.services.insurances.map((insurance: Insurance) => (
                   insurance.link ?
                     <Link href={insurance.link} className="w-38 h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
-                      {/* <h3>{insurance.name}</h3> */}
                       <CustomImage 
                         src={insurance.logo} 
                         alt={insurance.logo.alt || "no alt text provided"}
@@ -216,14 +183,12 @@ export default async function Home() {
                     </Link>
                   :
                     <div className="w-24 h-24 md:w-38 md:h-38 flex flex-col" key={`accepted-insurance-${insurance.name}`}>
-                      {/* <h3>{insurance.name}</h3> */}
                       <CustomImage 
                         src={insurance.logo} 
                         alt={insurance.logo.alt || "no alt text provided"}
                         objectFit="contain"
                       />
                     </div>
-
 
                 ))
               }
