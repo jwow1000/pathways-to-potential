@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Footer() {
   
   return (
-    <div className="w-full p-0 my-6 mx-1 py-6">
+    <div className="w-full my-6 py-6 px-2 border-t-1">
       <div className="flex flex-col md:flex-row p-6 gap-6 justify-around">
         <div className="flex flex-col items-center">
           <h3 className="font-bold">Location: Brooklyn + New York State</h3>
