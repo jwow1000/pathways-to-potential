@@ -3,7 +3,7 @@ import RichText from "@/components/RichText";
 
 export default async function FAQs() {
   const info = await getFAQs();  
-  console.log("info: ", info);
+  // console.log("info: ", info);
   
 
   return (
@@ -16,12 +16,20 @@ export default async function FAQs() {
           `}</h2> 
           {
             info &&
-            info.map((faq) => (
-              <div key={`faq-${faq.question}`} className="mt-16 max-w-[800px] mx-auto">
-                <h3 className="font-bold text-xl my-4">{faq.question}</h3>
-                <RichText value={faq.answer} />
-              </div>
-            ))
+            info.map((faq) => {
+              if(faq.answer) {
+                const bodyBlocks = faq?.answer.map(block => ({
+                  ...block,
+                  children: block.children ?? [],
+                })) ?? []; 
+                return (
+                  <div key={`faq-${faq.question}`} className="mt-16 max-w-[800px] mx-auto">
+                    <h3 className="font-bold text-xl my-4">{faq.question}</h3>
+                    <RichText value={bodyBlocks} />
+                  </div>
+                )
+              }
+            })
           }
          
         </section>
