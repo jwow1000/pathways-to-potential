@@ -1,47 +1,23 @@
-import { getContact } from "@/sanity/lib/fetch";
-import RichText from "@/components/RichText";
-import ContactForm from "@/components/ContactForm";
-import CustomImage from "@/components/CustomImage";
-
 export default async function Specialties() {
-  const info = await getContact();  
-  console.log("info: ", info);
-  const bodyBlocks = info.body?.map(block => ({
-    ...block,
-    children: block.children ?? [],
-  })) ?? [];
-
   return (
-    <section className="relative bg-gray text-black w-full p-2 md:p-6 gap-8
-          flex flex-col lg:flex-row justify-between 
-          lg:pl-16"
-        >
-          <div className="w-fit mx-auto lg:w-1/2 min-w-[300px] max-w-[500px] pt-0 flex-col z-30">
-            <h2 className="w-full mb-6 text-[28px] font-serif z-30">{info.title}</h2>
-            {
-              info.body &&
-              <div className="w-full mx-auto">
-                <RichText value={bodyBlocks} />
-              </div>
-            }
-            <ContactForm />
-
-          </div>
-          <div className="w-full h-[300px] lg:h-auto lg:w-1/2 pt-0 flex-col z-30">
-            {
-              info.image &&
-              <CustomImage 
-                src={info.image} 
-                alt={info.image.alt} 
-                className="rounded" 
-                overlay={false}
-                objectFit="cover"
-                animation={true}
-              />
-            }
-          </div>
-         
-        </section>
-   
-  )
+    <section className="w-full relative bg-gray text-black w-full p-6">
+      <h1 className="w-fit mt-12 mx-auto text-[28px] font-serif font-bold z-30">{`Specialty Treatments`}</h1>
+      <div className="max-w-[61ch] mx-auto mt-14">
+        <p className="">{`At Pathways to Potential, we offer a range of effective, evidence based interventions for most mental health challenges or life difficulties.`}</p>
+        <p className="my-8 font-bold">{"These Include: "}</p>
+        <ul>
+          <li>{`Relationship and Interpersonal Difficulties`}</li>
+          <li>{`Depression`}</li>
+          <li>{`Anxiety`}</li>
+          <li>{`Trauma`}</li>
+          <li>{`OCD`}</li>
+          <li>{`Spectrum Disorders`}</li>
+          <li>{`ADHD`}</li>
+          <li>{`Adjustments to Life Stressors`}</li>
+          <li>{`Coping with Difficult Medical Illnesses`}</li>
+          <li>{`Men's Divorce Group`}</li>
+        </ul>
+      </div>
+    </section>
+  );
 }

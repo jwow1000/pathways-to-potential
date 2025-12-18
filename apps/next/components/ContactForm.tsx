@@ -8,8 +8,6 @@ export type FormData = {
   email: string;
   subject: string;
   message: string;
-  insurance: string;
-  insuranceId?: string;
   honeypot: string;
 };
 
@@ -156,19 +154,6 @@ const ContactForm: FC = () => {
                 </p>
               )}
             </div>
-          </div>
-
-          {/* Insurance */}
-          <div className="mb-5">
-            <label htmlFor="insurance" className="block">
-              Insurance
-            </label>
-            <input
-              id="insurance"
-              type="text"
-              className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
-              {...register("insurance")}
-            />
           </div>
 
           {/* Honeypots */}

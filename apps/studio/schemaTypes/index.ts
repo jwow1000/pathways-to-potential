@@ -9,6 +9,7 @@ import about from "./about";
 import homePageAssets from "./homePageAssets";
 import blogPost from "./blogPost";
 import faq from "./faq";
+import formContact from "./formContact";
 
 export const schemaTypes = [
   about,
@@ -21,5 +22,6 @@ export const schemaTypes = [
   blogPost,
   team,
   faq,
-  homePageAssets
+  homePageAssets,
+  formContact,
 ]

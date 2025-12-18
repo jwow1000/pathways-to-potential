@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interSans.variable} ${ibmSerif.variable} relative antialiased`}
+        className={`${interSans.variable} ${ibmSerif.variable} relative antialiased min-h-[100vh]`}
       >
       <Header />
         {children}

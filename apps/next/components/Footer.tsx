@@ -7,8 +7,9 @@ import Link from "next/link";
 export default function Footer() {
   
   return (
-    <div className="w-full my-6 py-6 px-2 border-t-1">
-      <div className="flex flex-col md:flex-row p-6 gap-6 justify-around">
+    <div className="w-full my-6 py-6 px-2">
+      <div className="w-full h-[1px] bg-black"></div>
+      <div className="flex flex-col md:flex-row mt-6 p-6 gap-6 justify-around">
         <div className="flex flex-col items-center">
           <h3 className="font-bold">Location: Brooklyn + New York State</h3>
           <p>Virtual Sessions Only</p>
@@ -19,7 +20,8 @@ export default function Footer() {
         </div>
         <div className="flex flex-col items-center">
           <h3 className="font-bold">Contact:</h3>
-          <p>email@email.com</p>
+          
+          <Link href="/contact" className="p-0 z-50">Contact Us Link</Link>
         </div>
 
       </div>

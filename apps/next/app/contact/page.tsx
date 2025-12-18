@@ -17,7 +17,7 @@ export default async function Contact() {
           lg:pl-16"
         >
           <div className="w-fit mx-auto lg:w-1/2 min-w-[300px] max-w-[500px] pt-0 flex-col z-30">
-            <h2 className="w-full mb-6 text-[28px] font-serif z-30">{info.title}</h2>
+            <h1 className="w-fit my-12 text-[28px] font-serif font-bold z-30">{info.title}</h1>
             {
               info.body &&
               <div className="w-full mx-auto">

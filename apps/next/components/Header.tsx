@@ -15,10 +15,11 @@ function MainLinks({className}: {className: string}) {
     <div className={`${className}`}>
       <Link href={`/`} className="hover:bg-blue hover:text-gray p-1" aria-label="Welcome">{`Welcome`}</Link>
       <Link href={`/about`} className="hover:bg-blue hover:text-gray p-1" aria-label="About">{`About`}</Link>
-      <Link href={`/therapy`} className="hover:bg-blue hover:text-gray p-1" aria-label="Therapy">{`Therapy`}</Link>
+      <Link href={`/services`} className="hover:bg-blue hover:text-gray p-1" aria-label="Services">{`Services`}</Link>
       <Link href={`/specialties`} className="hover:bg-blue hover:text-gray p-1" aria-label="Specialties">{`Specialties`}</Link>
       {/* <Link href={`/blog`} aria-label="blog">{`blog`}</Link> */}
       <Link href={`/faq`} className="hover:bg-blue hover:text-gray p-1" aria-label="FAQ">{`FAQ`}</Link>
+      <Link href={`/blog`} className="hover:bg-blue hover:text-gray p-1" aria-label="Blog">{`Blog`}</Link>
       <Link href={`/contact`} className="hover:bg-blue hover:text-gray p-1" aria-label="">{`Contact`}</Link>
     </div>
   )
@@ -66,7 +67,7 @@ export default function Header({ className = "" }: PCHeaderProps) {
           />
         </div>
         <div className="hidden md:flex text-black flex-row gap-10 w-fit mr-0 ml-auto pointer-events-auto font-serif" onClick={handleMenuClick}>
-          <MainLinks className="hidden lg:flex text-black text-xl flex-row gap-6 w-fit mr-0 ml-auto pointer-events-auto font-serif"/> 
+          <MainLinks className="hidden lg:flex text-black text-lg xl:text-xl flex-row gap-6 w-fit mr-0 ml-auto pointer-events-auto font-serif"/> 
         </div>
         <div
           className={`
