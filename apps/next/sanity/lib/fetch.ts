@@ -8,8 +8,9 @@ import {
   getServicesQuery,
   getLandingPageQuery,
   getFAQsQuery,
+  getTeamMemberBySlugQuery,
 } from "./queries";
-import { About, AcceptedInsurances, Contact, HowItWorks, MeetTheTeam, Services, Faq } from "@/../studio/sanity.types";
+import { About, AcceptedInsurances, Contact, HowItWorks, MeetTheTeam, Services, Faq, TeamMember } from "@/../studio/sanity.types";
 
 export async function getLandingPage() {
   return await client.fetch(getLandingPageQuery);
@@ -35,6 +36,10 @@ export async function getServices() {
 export async function getFAQs() {
   return await client.fetch<Faq[]>(getFAQsQuery);
 }
+export async function getTeamMemberBySlug(slug: string) {
+  return await client.fetch<TeamMember>(getTeamMemberBySlugQuery, {slug});
+}
+
 
 
 

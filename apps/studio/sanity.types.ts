@@ -13,6 +13,18 @@
  */
 
 // Source: schema.json
+export type FormContact = {
+  _id: string
+  _type: 'formContact'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  email?: string
+  subject?: string
+  message?: string
+}
+
 export type HomePageAssets = {
   _id: string
   _type: 'homePageAssets'
@@ -485,6 +497,7 @@ export type Geopoint = {
 }
 
 export type AllSanitySchemaTypes =
+  | FormContact
   | HomePageAssets
   | CustomImage
   | Faq

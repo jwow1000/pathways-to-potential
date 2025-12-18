@@ -39,3 +39,7 @@ export const getServicesQuery = defineQuery(`
   *[_type == "services"] [0]
 `);
 
+export const getTeamMemberBySlugQuery = defineQuery(`
+  *[_type == "teamMember" && $slug == slug.current] [0]
+`);
+
