@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
       email,
       message,
       subject,
-      createdAt: new Date().toISOString(),
+      _createdAt: new Date().toISOString(),
     });
 
     // --- 4. Send alert to Pathways ---
@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
       Message: ${message}
     `
     await resend.emails.send({
-      from: process.env.RESEND_EMAIL_FROM || "noreply@pathwaystopotential.com", 
+      from: process.env.RESEND_EMAIL_FROM || "noreply@pathwaystopotentialnyc.com", 
       to: emailTo,
       subject: `New message from ${name}`,
       text: messageBody,
@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
       Jon at Pathways to Potential
     `
     await resend.emails.send({
-      from: process.env.RESEND_EMAIL_FROM || "noreply@pathwaystopotential.com", 
+      from: process.env.RESEND_EMAIL_FROM || "noreply@pathwaystopotentialnyc.com", 
       to: email,
       subject: `Thank You for contacting us`,
       text: confirmationBody,
