@@ -32,7 +32,7 @@ const ContactForm: FC = () => {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/inquiry", {
+      const res = await fetch("/api/contact-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
