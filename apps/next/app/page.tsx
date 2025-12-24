@@ -91,14 +91,14 @@ export default async function Home() {
         {info.meetTheTeam && (
           <section
             className="
-            relative w-full bg-gray text-dark-blue my-16 py-2 md:py-16 px-2 min-h-[600px] 
+            relative w-full bg-gray text-dark-blue min-h-[600px] 
             flex flex-col gap-0 
-            md:gap-12 lg:pr-16
+            p-6 pb-24 lg:pl-16 md:gap-12 lg:pr-16
             border-t-[1px] border-b-[1px] 
           "
           >
             <div className="w-full md:w-1/2 my-4">
-              <h2 className="w-full mb-8 text-[40px] font-serif font-bold">
+              <h2 className="w-full mb-2 text-[40px] font-serif font-bold">
                 {info.meetTheTeam.title}
               </h2>
               <RichText value={info.meetTheTeam?.body} />
