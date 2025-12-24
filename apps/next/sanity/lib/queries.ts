@@ -5,6 +5,7 @@ export const getLandingPageQuery = defineQuery(`
   "about": *[_type == "about"][0],
   "contact": *[_type == "contact"][0],
   "meetTheTeam": *[_type == "meetTheTeam"][0],
+  "team": *[_type == "teamMember"] | order(order asc),
   "howItWorks": *[_type == "howItWorks"][0],
   "services": *[_type == "services"][0],
   "landingPage": *[_type == "homePageAssets"][0],
@@ -32,7 +33,10 @@ export const getHowQuery = defineQuery(`
 `);
 
 export const getMeetTeamQuery = defineQuery(`
-  *[_type == "meetTheTeam"] [0]
+  {
+    "page": *[_type == "meetTheTeam"] [0],
+    "team": *[_type == "teamMember"] | order(order asc),
+  }
 `);
 
 export const getServicesQuery = defineQuery(`

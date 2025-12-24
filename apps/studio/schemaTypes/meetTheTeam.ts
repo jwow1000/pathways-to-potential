@@ -21,11 +21,6 @@ export default defineType({
       type: 'customImage',
       title: 'Header Image',
     }),
-    defineField({
-      name: 'teamMembers',
-      title: 'List of Team Members',
-      type: 'array',
-      of: [{type: 'teamMember'}]
-    })
+    
   ],
 })

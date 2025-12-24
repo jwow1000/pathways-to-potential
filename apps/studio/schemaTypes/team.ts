@@ -34,9 +34,15 @@ export default defineType({
       type: 'customImage',
     }),
     defineField({
+      name: 'shortBio',
+      title: 'Short Biography',
+      description: 'Short Bio for the preview',
+      type: 'string',
+    }),
+    defineField({
       name: 'bio',
       title: 'Biography',
-      description: 'Short Bio',
+      description: 'Long Bio',
       type: 'array',
       of: [{type: 'block'}],
     }),

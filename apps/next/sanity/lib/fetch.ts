@@ -12,6 +12,12 @@ import {
 } from "./queries";
 import { About, AcceptedInsurances, Contact, HowItWorks, MeetTheTeam, Services, Faq, TeamMember } from "@/../studio/sanity.types";
 
+// custom complex types
+type MeetTeamResponse = {
+  page: MeetTheTeam
+  team: TeamMember[]
+}
+
 export async function getLandingPage() {
   return await client.fetch(getLandingPageQuery);
 }
@@ -28,7 +34,7 @@ export async function getHow() {
   return await client.fetch<HowItWorks>(getHowQuery);
 }
 export async function getMeetTeam() {
-  return await client.fetch<MeetTheTeam>(getMeetTeamQuery);
+  return await client.fetch<MeetTeamResponse>(getMeetTeamQuery);
 }
 export async function getServices() {
   return await client.fetch<Services>(getServicesQuery);

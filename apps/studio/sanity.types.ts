@@ -122,6 +122,7 @@ export type TeamMember = {
   name?: string
   slug?: Slug
   portrait?: CustomImage
+  shortBio?: string
   bio?: Array<{
     children?: Array<{
       marks?: Array<string>
@@ -140,6 +141,12 @@ export type TeamMember = {
     _type: 'block'
     _key: string
   }>
+}
+
+export type Slug = {
+  _type: 'slug'
+  current?: string
+  source?: string
 }
 
 export type BlogPost = {
@@ -171,12 +178,6 @@ export type BlogPost = {
     _type: 'block'
     _key: string
   }>
-}
-
-export type Slug = {
-  _type: 'slug'
-  current?: string
-  source?: string
 }
 
 export type Services = {
@@ -238,11 +239,6 @@ export type MeetTheTeam = {
     _key: string
   }>
   image?: CustomImage
-  teamMembers?: Array<
-    {
-      _key: string
-    } & TeamMember
-  >
 }
 
 export type HowItWorks = {
@@ -502,8 +498,8 @@ export type AllSanitySchemaTypes =
   | CustomImage
   | Faq
   | TeamMember
-  | BlogPost
   | Slug
+  | BlogPost
   | Services
   | MeetTheTeam
   | HowItWorks
