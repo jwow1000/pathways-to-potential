@@ -5,7 +5,7 @@ import CustomImage from "@/components/CustomImage";
 
 export default async function Contact() {
   const info = await getContact();  
-  // console.log("info: ", info);
+  console.log("info: ", info);
   const bodyBlocks = info.body?.map(block => ({
     ...block,
     children: block.children ?? [],

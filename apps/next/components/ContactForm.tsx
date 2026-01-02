@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 export type FormData = {
   name: string;
   email: string;
+  phone: number;
+  insurance: string;
   subject: string;
   message: string;
   honeypot: string;
@@ -66,7 +68,7 @@ const ContactForm: FC = () => {
           {/* Name */}
           <div className="mb-5">
             <label htmlFor="name" className="block text-base">
-              Full Name
+              First and Last Name
             </label>
             <input
               id="name"
@@ -113,6 +115,32 @@ const ContactForm: FC = () => {
             </div>
           </div>
 
+          {/* Phone Number */}
+          <div className="mb-5">
+            <label htmlFor="phone" className="block">
+              Phone Number
+            </label>
+            <input
+              id="phone"
+              type="text"
+              className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
+              {...register("phone")}
+            />
+          </div>
+
+          {/* Insurance */}
+          <div className="mb-5">
+            <label htmlFor="insurance" className="block">
+              Insurance
+            </label>
+            <input
+              id="insurance"
+              type="text"
+              className="w-full h-8 border-b-[1px] outline-none focus:border-blue focus:shadow-lg"
+              {...register("insurance")}
+            />
+          </div>
+
           {/* Subject */}
           <div className="mb-5">
             <label htmlFor="subject" className="block">
@@ -142,8 +170,8 @@ const ContactForm: FC = () => {
                   message: "Message should be at least 8 characters",
                 },
                 maxLength: {
-                  value: 128,
-                  message: 'max 128 charachters',
+                  value: 250,
+                  message: 'max 250 charachters',
                 },
               })}
             />

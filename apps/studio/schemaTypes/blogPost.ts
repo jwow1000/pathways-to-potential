@@ -45,10 +45,9 @@ export default defineType({
     }),
      defineField({
       name: 'body',
-      type: 'array',
+      type: 'customPortable',
       description: 'Body of the Blog Post',
       title: 'Content',
-      of: [{ type: 'block' }],
     }),
     
   ],

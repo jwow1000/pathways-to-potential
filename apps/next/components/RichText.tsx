@@ -14,6 +14,9 @@ export default function RichText( {value, bio=false}: RichTextProps ) {
       value={value}
       components={{
         block: {
+          subtext: ({children}) => (
+            <p className="text-xs">{children}</p>
+          ),
           normal: ({ children }) => (
             <p 
               className={`max-w-[50ch] text-normal md:text-lg lg:text-xl mb-4 leading-8 ${bio ? "text-[14px] md:text-[15px] lg:text-sm leading-[120%]" : ""}`}

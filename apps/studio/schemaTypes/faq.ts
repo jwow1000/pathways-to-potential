@@ -15,9 +15,8 @@ export default defineType({
      defineField({
       name: 'answer',
       title: 'The answer',
-      type: 'array',
+      type: 'customPortable',
       description: 'The answer that will appear below the question',
-      of: [{ type: 'block' }],
     }),
     
   ],

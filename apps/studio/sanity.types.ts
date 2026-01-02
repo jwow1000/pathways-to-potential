@@ -13,6 +13,25 @@
  */
 
 // Source: schema.json
+export type CustomPortable = Array<{
+  children?: Array<{
+    marks?: Array<string>
+    text?: string
+    _type: 'span'
+    _key: string
+  }>
+  style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote' | 'subtext'
+  listItem?: 'bullet' | 'number'
+  markDefs?: Array<{
+    href?: string
+    _type: 'link'
+    _key: string
+  }>
+  level?: number
+  _type: 'block'
+  _key: string
+}>
+
 export type FormContact = {
   _id: string
   _type: 'formContact'
@@ -21,6 +40,8 @@ export type FormContact = {
   _rev: string
   name?: string
   email?: string
+  phone?: string
+  insurance?: string
   subject?: string
   message?: string
 }
@@ -32,42 +53,8 @@ export type HomePageAssets = {
   _updatedAt: string
   _rev: string
   headerText?: string
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
-  whyChooseUsText?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  body?: CustomPortable
+  whyChooseUsText?: CustomPortable
   banner?: CustomImage
 }
 
@@ -93,24 +80,7 @@ export type Faq = {
   _updatedAt: string
   _rev: string
   question?: string
-  answer?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  answer?: CustomPortable
 }
 
 export type TeamMember = {
@@ -123,24 +93,7 @@ export type TeamMember = {
   slug?: Slug
   portrait?: CustomImage
   shortBio?: string
-  bio?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  bio?: CustomPortable
 }
 
 export type Slug = {
@@ -160,24 +113,7 @@ export type BlogPost = {
   authorCustom?: string
   linkedAuthor?: TeamMember
   featuredImage?: CustomImage
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  body?: CustomPortable
 }
 
 export type Services = {
@@ -187,24 +123,7 @@ export type Services = {
   _updatedAt: string
   _rev: string
   title?: string
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  body?: CustomPortable
   image?: CustomImage
   insurances?: Array<
     {
@@ -220,24 +139,7 @@ export type MeetTheTeam = {
   _updatedAt: string
   _rev: string
   title?: string
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  body?: CustomPortable
   image?: CustomImage
 }
 
@@ -256,24 +158,7 @@ export type HowItWorks = {
     _type: 'step'
     _key: string
   }>
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  body?: CustomPortable
   image?: CustomImage
 }
 
@@ -302,24 +187,7 @@ export type Contact = {
     _type: 'block'
     _key: string
   }>
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  body?: CustomPortable
   image?: CustomImage
 }
 
@@ -359,24 +227,7 @@ export type About = {
     _type: 'block'
     _key: string
   }>
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: 'span'
-      _key: string
-    }>
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-    listItem?: 'bullet' | 'number'
-    markDefs?: Array<{
-      href?: string
-      _type: 'link'
-      _key: string
-    }>
-    level?: number
-    _type: 'block'
-    _key: string
-  }>
+  body?: CustomPortable
   image?: CustomImage
 }
 
@@ -493,6 +344,7 @@ export type Geopoint = {
 }
 
 export type AllSanitySchemaTypes =
+  | CustomPortable
   | FormContact
   | HomePageAssets
   | CustomImage

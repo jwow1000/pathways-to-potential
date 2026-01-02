@@ -12,15 +12,13 @@ export default defineType({
     }),
     defineField({
       name: 'body',
-      type: 'array',
+      type: 'customPortable',
       title: 'Content',
-      of: [{ type: 'block' }],
     }),
     defineField({
       name: 'whyChooseUsText',
-      type: 'array',
+      type: 'customPortable',
       title: 'Why Choose Us Text',
-      of:[{ type: 'block'}],
     }),
     defineField({
       name: 'banner',

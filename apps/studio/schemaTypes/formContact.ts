@@ -18,6 +18,16 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'phone',
+      title: 'Phone Number',
+      type: 'string',
+    }),
+    defineField({
+      name: 'insurance',
+      title: 'Insurance',
+      type: 'string',
+    }),
+    defineField({
       name: 'subject',
       title: 'Subject',
       description: 'subject of message',

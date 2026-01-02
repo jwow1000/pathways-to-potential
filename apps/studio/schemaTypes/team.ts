@@ -43,8 +43,7 @@ export default defineType({
       name: 'bio',
       title: 'Biography',
       description: 'Long Bio',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'customPortable',
     }),
   ],
 })

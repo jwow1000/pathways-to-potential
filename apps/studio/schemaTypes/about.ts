@@ -19,9 +19,8 @@ export default defineType({
     }), 
     defineField({
       name: 'body',
-      type: 'array',
+      type: 'customPortable',
       title: 'Content',
-      of: [{ type: 'block' }],
     }),
     defineField({
       name: 'image',
