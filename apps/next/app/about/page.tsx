@@ -81,7 +81,7 @@ export default async function About() {
               </h2>
               <RichText value={teamBlocks} />
             </div>
-            <div className="w-full max-w-[500px] md:max-w-none mx-auto md:mx-0 flex flex-col items-center justify-around lg:flex-row gap-16 my-6">
+            <div className="w-full max-w-[800px] md:max-w-none mx-auto md:mx-0 flex flex-col items-center justify-around lg:flex-row gap-16 my-6">
               {team.team.map((member: TeamMemberType) => (
                 <TeamMember
                   member={member}
